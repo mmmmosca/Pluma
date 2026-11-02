@@ -14,6 +14,8 @@ def tokenize(line):
 
             if result == "stampa":
                 tokens.append("STAMPA")
+            elif result == "inserisci":
+                tokens.append("INSERISCI")
             elif result == "lista":
                 tokens.append("LISTA")
             elif result == "con":
@@ -42,6 +44,12 @@ def tokenize(line):
                 tokens.append("E")
             elif result == "o":
                 tokens.append("O")
+            elif result == "non":
+                tokens.append("NON")
+            elif result == "vero":
+                tokens.append("VERO")
+            elif result == "falso":
+                tokens.append("FALSO")
             else:
                 tokens.append(("IDENTIFICATORE", result))
 
@@ -88,6 +96,12 @@ def tokenize(line):
                 i += 1
             else:
                 tokens.append("MINORE")
+        elif line[i] == '!':
+            if i + 1 < l and line[i+1] == '=':
+                tokens.append("NON_UGUALE_A")
+                i += 1
+            else:
+                tokens.append("NON")
         elif line[i] == '+':
             tokens.append("PIU")
         elif line[i] == '-':
@@ -153,30 +167,3 @@ def tokenize_source(source):
         tokens.append("DEDENT")
 
     return tokens
-
-
-programma = '''\
-sia x = 0
-
-se x < 1 allora
-    stampa x
-altrimenti
-    stampa 0
-
-# un commento
-
-sia numeri = lista con 1, 2, 3, 4, 5 # commento inline
-
-perogni numero in numeri allora
-    stampa numero
-
-funzione fattoriale con n
-    se n <= 1 allora
-        ritorna 1
-    altrimenti
-        ritorna n * fattoriale con n-1
-'''
-
-if __name__ == "__main__":
-    for t in tokenize_source(programma):
-        print(t)

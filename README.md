@@ -1,11 +1,5 @@
 # Tramezzo
 
-Tramezzo è un linguaggio di programmazione sperimentale che nasce da un'idea semplice: **programmare dovrebbe essere comprensibile, senza complessità inutili.**
-
-La sua sintassi è progettata per essere familiare, leggibile e accessibile, soprattutto a chi si avvicina per la prima volta alla programmazione e all'informatica.
-
-Il progetto è sviluppato in Python ed è attualmente in fase di sviluppo.
-
 ## Sintassi
 
 ### Variabili

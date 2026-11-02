@@ -1,0 +1,23 @@
+sia x = 0
+
+se x < 1 allora
+    stampa x
+altrimenti
+    stampa 0
+
+###
+
+sia numeri = lista con 1, 2, 3, 4, 5
+
+perogni numero in numeri allora
+    stampa numero
+
+###
+
+funzione fattoriale con n
+    se n <= 1 allora
+        ritorna 1
+    altrimenti
+        ritorna n * fattoriale
+
+# L'OBIETTIVO È RENDERLO LEGGIBILE, SEMPLICE DA SPIEGARE E DA RISCRIVERE IN ALTRI LINGUAGGI (PER STUDENTI UNIVERSITARI DI INFORMATICA)

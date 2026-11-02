@@ -52,6 +52,14 @@ def parse_primary():
         advance()
         return ("VAR", token[1])
 
+    if token == "VERO":
+        advance()
+        return ("VERO",)
+
+    if token == "FALSO":
+        advance()
+        return ("FALSO",)
+
     if token == "LISTA":
         return parse_list()
 

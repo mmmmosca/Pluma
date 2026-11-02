@@ -44,6 +44,9 @@ def evaluate(node, functions):
     elif tipo == "INSERISCI":
         return input()
 
+    elif tipo == "LUNGHEZZA":
+        return len(evaluate(node[1], functions))
+
     elif tipo == "LISTA":
         return [evaluate(element, functions) for element in node[1]]
 

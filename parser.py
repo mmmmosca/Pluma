@@ -348,6 +348,9 @@ def parse_statement():
             node = parse_call()
             expect("NEWLINE")
             return ("CALL_STMT", node)
+
+        raise SyntaxError(f"Istruzione sconosciuta: {token[1]}")
+
     elif token == "SIA":
         return parse_declaration()
 

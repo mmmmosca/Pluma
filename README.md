@@ -47,6 +47,12 @@ sia numeri = lista con 1, 2, 3, 4, 5
 stampa 0 da numeri
 ```
 
+È anche possibile ottenere la lunghezza di una lista utilizzando `lunghezza`.
+```text
+stampa lunghezza numeri
+```
+
+
 ### Cicli
 
 Per iterare sugli elementi di una lista si utilizza `perogni`.

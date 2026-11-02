@@ -95,6 +95,28 @@ def parse_term():
     return left
 
 def parse_expression():
+    left = parse_and()
+
+    while current() == "O":
+        operator = advance()
+        right = parse_and()
+
+        left = ("BINOP", operator, left, right)
+
+    return left
+
+def parse_and():
+    left = parse_comparison()
+
+    while current() == "E":
+        operator = advance()
+        right = parse_comparison()
+
+        left = ("BINOP", operator, left, right)
+
+    return left
+
+def parse_comparison():
     left = parse_term()
 
     while current() in (
@@ -103,9 +125,7 @@ def parse_expression():
         "MAGGIORE_UGUALE",
         "MINORE_UGUALE",
         "UGUALE_A",
-        "NON_UGUALE_A",
-        "E",
-        "O"
+        "NON_UGUALE_A"
     ):
         operator = advance()
         right = parse_term()

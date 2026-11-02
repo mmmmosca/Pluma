@@ -63,7 +63,15 @@ def tokenize(line):
             while j < l and line[j].isdigit():
                 j += 1
 
-            result = int(line[i:j])
+            if j + 1 < l and line[j] == "." and line[j + 1].isdigit():
+                j += 1
+
+                while j < l and line[j].isdigit():
+                    j += 1
+
+                result = float(line[i:j])
+            else:
+                result = int(line[i:j])
 
             tokens.append(("NUMERO", result))
 

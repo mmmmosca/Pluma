@@ -112,6 +112,12 @@ def evaluate(node, functions):
         if operator == "PIU":
             return left + right
 
+        elif operator == "E":
+            return left and right
+
+        elif operator == "O":
+            return left or right
+
         elif operator == "MENO":
             return left - right
 

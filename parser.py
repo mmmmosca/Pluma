@@ -254,7 +254,13 @@ def parse_print():
 def parse_input():
     expect("INSERISCI")
 
-    return ("INSERISCI",)
+    prompt = None
+
+    token = current()
+    if isinstance(token, tuple) and token[0] == "STRINGA":
+        prompt = parse_primary()
+
+    return ("INSERISCI", prompt)
 
 def parse_len():
     expect("LUNGHEZZA")

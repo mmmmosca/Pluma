@@ -16,6 +16,8 @@ def tokenize(line):
                 tokens.append("STAMPA")
             elif result == "inserisci":
                 tokens.append("INSERISCI")
+            elif result == "lunghezza":
+                tokens.append("LUNGHEZZA")
             elif result == "lista":
                 tokens.append("LISTA")
             elif result == "con":

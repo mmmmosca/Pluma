@@ -58,6 +58,9 @@ def parse_primary():
     if token == "INSERISCI":
         return parse_input()
 
+    if token == "LUNGHEZZA":
+        return parse_len()
+
     if token == "PARENTESI_S":
         advance()
 
@@ -225,6 +228,13 @@ def parse_input():
 
     return ("INSERISCI",)
 
+def parse_len():
+    expect("LUNGHEZZA")
+
+    value = parse_unary()
+
+    return ("LUNGHEZZA", value)
+
 def parse_if():
     expect("SE")
 
@@ -246,8 +256,10 @@ def parse_foreach():
     expect("PEROGNI")
 
     nome = current()
+
     if not isinstance(nome, tuple) or nome[0] != "IDENTIFICATORE":
         raise SyntaxError("Nome della variabile atteso")
+
 
     advance()
     expect("IN")

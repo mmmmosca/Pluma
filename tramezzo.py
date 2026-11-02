@@ -48,7 +48,8 @@ def evaluate(node, functions):
         return get_var(node[1])
 
     elif tipo == "INSERISCI":
-        return input()
+        prompt = evaluate(node[1], functions) if node[1] is not None else ""
+        return input(prompt)
 
     elif tipo == "LUNGHEZZA":
         return len(evaluate(node[1], functions))

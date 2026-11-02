@@ -32,6 +32,21 @@ def set_var(name, value):
     scopes[-1][name] = value
 
 
+def formatta(valore):
+    if isinstance(valore, bool):
+        return "vero" if valore else "falso"
+
+    if isinstance(valore, float):
+        if valore == int(valore):
+            return str(int(valore))
+        return str(valore).replace(".", ",")
+
+    if isinstance(valore, list):
+        return "[" + ", ".join(formatta(v) for v in valore) + "]"
+
+    return str(valore)
+
+
 def evaluate(node, functions):
     tipo = node[0]
 
@@ -114,16 +129,17 @@ def evaluate(node, functions):
         operator = node[1]
 
         left = evaluate(node[2], functions)
+
+        if operator == "E":
+            return left and evaluate(node[3], functions)
+
+        elif operator == "O":
+            return left or evaluate(node[3], functions)
+
         right = evaluate(node[3], functions)
 
         if operator == "PIU":
             return left + right
-
-        elif operator == "E":
-            return left and right
-
-        elif operator == "O":
-            return left or right
 
         elif operator == "MENO":
             return left - right
@@ -183,7 +199,7 @@ def execute(node, functions):
 
     elif tipo == "STAMPA":
         valore = evaluate(node[1], functions)
-        print(valore)
+        print(formatta(valore))
 
     elif tipo == "SE":
         condition = evaluate(node[1], functions)

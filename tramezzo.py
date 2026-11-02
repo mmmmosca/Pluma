@@ -38,6 +38,12 @@ def evaluate(node, functions):
     if tipo == "NUMERO" or tipo == "STRINGA":
         return node[1]
 
+    elif tipo == "VERO":
+        return True
+
+    elif tipo == "FALSO":
+        return False
+
     elif tipo == "VAR":
         return get_var(node[1])
 

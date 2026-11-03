@@ -18,6 +18,6 @@ funzione fattoriale con n
     se n <= 1 allora
         ritorna 1
     altrimenti
-        ritorna n * fattoriale
+        ritorna n * fattoriale con n-1
 
 # L'OBIETTIVO È RENDERLO LEGGIBILE, SEMPLICE DA SPIEGARE E DA RISCRIVERE IN ALTRI LINGUAGGI (PER STUDENTI UNIVERSITARI DI INFORMATICA)
